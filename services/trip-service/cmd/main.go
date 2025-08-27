@@ -9,11 +9,8 @@ import (
 )
 
 func main() {
-
 	inmemRepo := repository.NewInmemRepository()
-
 	svc := service.NewService(inmemRepo)
-
 	mux := http.NewServeMux()
 
 	httphandler := h.HttpHandler{Service: svc}
@@ -26,6 +23,6 @@ func main() {
 	}
 
 	if err := server.ListenAndServe(); err != nil {
-		log.Printf("HTTP server error,%v", err)
+		log.Printf("HTTP server error: %v", err)
 	}
 }
